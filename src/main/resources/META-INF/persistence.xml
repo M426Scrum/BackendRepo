@@ -1,0 +1,12 @@
+<persistence>
+    <persistence-unit name="DefaultPersistenceUnit">
+
+        <class>ch.bzz.berufsschule.projekt.data.EventPO</class>
+        <class>ch.bzz.berufsschule.projekt.data.ReservationPO</class>
+        <class>ch.bzz.berufsschule.projekt.data.RoomPO</class>
+
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+        </properties>
+    </persistence-unit>
+</persistence>
