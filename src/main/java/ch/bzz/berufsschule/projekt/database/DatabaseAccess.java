@@ -37,6 +37,19 @@ public class DatabaseAccess {
         return (List<ReservationPO>) query.getResultList();
     }
 
+    public List<ReservationPO> getReservationListForRoom(int id){
+        Query query = entityManager.createQuery("SELECT rv FROM ReservationPO rv WHERE rv.roomId = :roomId");
+        query.setParameter("roomId", id);
+        return (List<ReservationPO>) query.getResultList();
+    }
+
+    public void addReservation(ReservationPO reservationPO){
+
+        entityManager.
+        entityManager.persist(reservationPO);
+
+    }
+
 
 
 

@@ -1,8 +1,13 @@
 package ch.bzz.berufsschule.projekt.data;
 
+import ch.bzz.berufsschule.projekt.util.LocalDateTimeDeserializer;
+import ch.bzz.berufsschule.projekt.util.LocalDateTimeSerializer;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.LocalDateTime;
 
 /**
@@ -14,10 +19,15 @@ import java.time.LocalDateTime;
 public class ReservationPO {
 
     @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int reservationId;
 
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
+    @JsonSerialize(using = LocalDateTimeSerializer.class)
     private LocalDateTime start;
 
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
+    @JsonSerialize(using = LocalDateTimeSerializer.class)
     private LocalDateTime end;
 
     @Column(name="Room_roomId")
