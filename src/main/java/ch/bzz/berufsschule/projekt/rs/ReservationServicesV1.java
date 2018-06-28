@@ -56,9 +56,16 @@ public class ReservationServicesV1 {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @ApiOperation(httpMethod = "PUT",value = "/addReservation", notes = "Adds a new reservation", response = Response.class, produces = MediaType.APPLICATION_JSON, consumes = MediaType.APPLICATION_JSON)
-    public Response addReservation(ReservationPO aReservation){
+    public Response addReservation(ReservationPO aReservation) {
 
-        databaseAccess.addReservation(aReservation);
+        ReservationPO reservationPO = new ReservationPO(aReservation.getStart(), aReservation.getEnd(), aReservation.getRoomId(), aReservation.getEventId());
+
+        try {
+            databaseAccess.addReservation(reservationPO);
+        } catch(Exception e){
+            e.printStackTrace();
+            return Response.status(Response.Status.BAD_REQUEST).entity("Reservation konnte nicht hinzugefügt werden.").build();
+        }
 
         return Response.ok().build();
     }

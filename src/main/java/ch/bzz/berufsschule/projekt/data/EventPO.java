@@ -2,9 +2,7 @@ package ch.bzz.berufsschule.projekt.data;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by lucienzimmermann on 24.05.18.

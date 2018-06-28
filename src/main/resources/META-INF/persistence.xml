@@ -1,5 +1,5 @@
 <persistence>
-    <persistence-unit name="DefaultPersistenceUnit">
+    <persistence-unit name="DefaultPersistenceUnit" transaction-type="JTA">
 
         <class>ch.bzz.berufsschule.projekt.data.EventPO</class>
         <class>ch.bzz.berufsschule.projekt.data.ReservationPO</class>
