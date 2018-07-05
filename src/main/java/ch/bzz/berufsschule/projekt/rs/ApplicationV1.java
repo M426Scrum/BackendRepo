@@ -18,8 +18,8 @@ public class ApplicationV1 extends Application{
 
     public ApplicationV1(){
         BeanConfig beanConfig = new BeanConfig();
-        beanConfig.setVersion("1.0.2");
-        beanConfig.setTitle("Scrum Projekt - Backend API v1");
+        beanConfig.setVersion("1.0");
+        beanConfig.setTitle("Scrum Projekt - Backend API");
         beanConfig.setSchemes(new String[]{"http"});
         beanConfig.setHost("localhost:8080");
         beanConfig.setBasePath("/v1");

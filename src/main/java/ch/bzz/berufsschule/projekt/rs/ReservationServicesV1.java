@@ -17,6 +17,8 @@ import java.util.List;
  * Created by lucienzimmermann on 31.05.18.
  */
 @Path("/ReservationServicesV1")
+@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
 @Api(value="Reservation Service")
 public class ReservationServicesV1 {
 
@@ -25,8 +27,7 @@ public class ReservationServicesV1 {
 
     @GET
     @Path("/reservations")
-    @Produces(MediaType.APPLICATION_JSON)
-    @ApiOperation(httpMethod = "GET", value = "/reservations", notes = "Returns list of reservations", response = ReservationPO.class, responseContainer = "List", produces = MediaType.APPLICATION_JSON)
+    @ApiOperation(value = "getReservationList", notes = "Returns list of reservations")
     public List<ReservationPO> getReservationList(){
 
         return databaseAccess.getReservationList();
@@ -34,17 +35,15 @@ public class ReservationServicesV1 {
 
     @GET
     @Path("/reservations/{id}")
-    @Produces(MediaType.APPLICATION_JSON)
-    @ApiOperation(httpMethod = "GET", value = "/reservations/id", notes = "Returns reservation with given ID", response = ReservationPO.class, produces = MediaType.APPLICATION_JSON)
-    public ReservationPO getReservationList(@PathParam("id") int id){
+    @ApiOperation(value = "getReservationById", notes = "Returns reservation with given ID")
+    public ReservationPO getReservationById(@PathParam("id") int id){
 
         return databaseAccess.getReservationById(id);
     }
 
     @GET
     @Path("/reservationsForRoom/{id}")
-    @Produces(MediaType.APPLICATION_JSON)
-    @ApiOperation(httpMethod = "GET", value = "/reservationsForRoom/id", notes = "Returns list reservations with given roomId", response = ReservationPO.class, produces = MediaType.APPLICATION_JSON)
+    @ApiOperation(value = "getReservationListForRoom", notes = "Returns list reservations with given roomId")
     public List<ReservationPO> getReservationListForRoom(@PathParam("id") int roomId){
 
         return databaseAccess.getReservationListForRoom(roomId);
@@ -53,9 +52,7 @@ public class ReservationServicesV1 {
 
     @PUT
     @Path("/addReservation")
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    @ApiOperation(httpMethod = "PUT",value = "/addReservation", notes = "Adds a new reservation", response = Response.class, produces = MediaType.APPLICATION_JSON, consumes = MediaType.APPLICATION_JSON)
+    @ApiOperation(value = "addReservation", notes = "Adds a new reservation")
     public Response addReservation(ReservationPO aReservation) {
 
         ReservationPO reservationPO = new ReservationPO(aReservation.getStart(), aReservation.getEnd(), aReservation.getRoomId(), aReservation.getEventId());

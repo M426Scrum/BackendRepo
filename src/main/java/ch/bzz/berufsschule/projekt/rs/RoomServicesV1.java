@@ -15,6 +15,7 @@ import java.util.List;
  * Created by lucienzimmermann on 31.05.18.
  */
 @Path("/RoomServicesV1")
+@Produces(MediaType.APPLICATION_JSON)
 @Api(value="Reservation Service")
 public class RoomServicesV1 {
 
@@ -23,8 +24,7 @@ public class RoomServicesV1 {
 
     @GET
     @Path("/rooms")
-    @Produces(MediaType.APPLICATION_JSON)
-    @ApiOperation(httpMethod = "GET", value = "/rooms", notes = "Returns list of rooms", response = RoomPO.class, responseContainer = "List", produces = MediaType.APPLICATION_JSON)
+    @ApiOperation(value = "getRoomList", notes = "Returns list of rooms")
     public List<RoomPO> getRoomList(){
 
         return databaseAccess.getRoomList();
@@ -32,9 +32,8 @@ public class RoomServicesV1 {
 
     @GET
     @Path("/rooms/{id}")
-    @Produces(MediaType.APPLICATION_JSON)
-    @ApiOperation(httpMethod = "GET", value = "/rooms/id", notes = "Returns room with given ID", response = RoomPO.class, produces = MediaType.APPLICATION_JSON)
-    public RoomPO getRoomById(@PathParam("id") int id){
+    @ApiOperation(value = "getRoomById", notes = "Returns room with given ID")
+    public RoomPO getRoomById(@PathParam("id") Integer id){
         return databaseAccess.getRoomById(id);
     }
 
