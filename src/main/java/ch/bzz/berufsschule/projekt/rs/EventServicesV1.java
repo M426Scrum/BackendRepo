@@ -32,7 +32,7 @@ public class EventServicesV1 {
     }
 
     @GET
-    @Path("/event/{id}")
+    @Path("/events/{id}")
     @ApiOperation(value = "getEventById", notes = "Returns event with given ID")
     public EventPO getEventById(@PathParam("id") int id){
 

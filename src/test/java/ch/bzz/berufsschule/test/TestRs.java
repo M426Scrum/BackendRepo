@@ -20,7 +20,7 @@ public class TestRs {
     public void testRegisterDude() throws IOException{
 
         /*javax.ws.rs.client.Client client = ClientBuilder.newClient();
-        WebTarget target = client.target("http://localhost:8080/v1/RoomServicesV1/room/1");
+        WebTarget target = client.target("http://localhost:8080/v1/RoomServicesV1/rooms");
         Response response = target.request(MediaType.APPLICATION_JSON_TYPE).get();
         RoomPO room = response.readEntity(RoomPO.class);
         response.close();*/
