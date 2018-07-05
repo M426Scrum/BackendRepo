@@ -42,7 +42,7 @@ public class ReservationServicesV1 {
     }
 
     @GET
-    @Path("/reservationsForRoom/{id}")
+    @Path("/reservation/room/{id}")
     @ApiOperation(value = "getReservationListForRoom", notes = "Returns list reservations with given roomId")
     public List<ReservationPO> getReservationListForRoom(@PathParam("id") int roomId){
 
@@ -51,11 +51,11 @@ public class ReservationServicesV1 {
     }
 
     @PUT
-    @Path("/addReservation")
+    @Path("/reservation")
     @ApiOperation(value = "addReservation", notes = "Adds a new reservation")
     public Response addReservation(ReservationPO aReservation) {
 
-        ReservationPO reservationPO = new ReservationPO(aReservation.getStart(), aReservation.getEnd(), aReservation.getRoomId(), aReservation.getEventId());
+        ReservationPO reservationPO = new ReservationPO(aReservation.getStart(), aReservation.getEnd(), aReservation.getRoom(), aReservation.getEvent());
 
         try {
             databaseAccess.addReservation(reservationPO);

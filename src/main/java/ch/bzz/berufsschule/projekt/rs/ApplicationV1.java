@@ -33,6 +33,7 @@ public class ApplicationV1 extends Application{
 
         set.add(RoomServicesV1.class);
         set.add(ReservationServicesV1.class);
+        set.add(EventServicesV1.class);
 
         set.add(ApiListingResource.class);
         set.add(SwaggerSerializers.class);

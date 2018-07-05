@@ -16,7 +16,7 @@ import java.util.List;
  */
 @Path("/RoomServicesV1")
 @Produces(MediaType.APPLICATION_JSON)
-@Api(value="Reservation Service")
+@Api(value="Room Service")
 public class RoomServicesV1 {
 
     @Inject

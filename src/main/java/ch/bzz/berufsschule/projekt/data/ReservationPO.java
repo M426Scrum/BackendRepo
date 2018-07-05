@@ -20,11 +20,11 @@ import java.time.LocalDateTime;
 @Table(name="reservation")
 public class ReservationPO {
 
-    public ReservationPO(LocalDateTime aStart, LocalDateTime aEnd, int aRoomId, int aEventId){
+    public ReservationPO(LocalDateTime aStart, LocalDateTime aEnd, RoomPO aRoomId, EventPO aEventId){
         this.start = aStart;
         this.end = aEnd;
-        this.roomId = aRoomId;
-        this.eventId = aEventId;
+        this.room = aRoomId;
+        this.event= aEventId;
     }
 
     @Id
@@ -39,10 +39,10 @@ public class ReservationPO {
     @JsonSerialize(using = LocalDateTimeSerializer.class)
     private LocalDateTime end;
 
-    @Column(name="Room_roomId")
-    private int roomId;
+    @ManyToOne(cascade=CascadeType.ALL)
+    private RoomPO room;
 
-    @Column(name="Event_eventId")
-    private int eventId;
+    @ManyToOne(cascade=CascadeType.ALL)
+    private EventPO event;
 
 }

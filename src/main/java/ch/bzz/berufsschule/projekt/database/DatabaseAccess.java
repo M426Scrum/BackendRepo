@@ -4,6 +4,7 @@ package ch.bzz.berufsschule.projekt.database;
  * Created by lucienzimmermann on 24.05.18.
  */
 
+import ch.bzz.berufsschule.projekt.data.EventPO;
 import ch.bzz.berufsschule.projekt.data.ReservationPO;
 import ch.bzz.berufsschule.projekt.data.RoomPO;
 
@@ -47,7 +48,7 @@ public class DatabaseAccess {
     }
 
     public List<ReservationPO> getReservationListForRoom(int id){
-        Query query = entityManager.createQuery("SELECT rv FROM ReservationPO rv WHERE rv.roomId = :roomId");
+        Query query = entityManager.createQuery("SELECT rv FROM ReservationPO rv WHERE rv.room.roomId = :roomId");
         query.setParameter("roomId", id);
         return (List<ReservationPO>) query.getResultList();
     }
@@ -56,6 +57,17 @@ public class DatabaseAccess {
 
         entityManager.persist(reservationPO);
 
+    }
+
+    public List<EventPO> getEventList(){
+        Query query = entityManager.createQuery("SELECT e FROM EventPO e");
+        return (List<EventPO>) query.getResultList();
+    }
+
+    public EventPO getEventById(int id){
+        Query query = entityManager.createQuery("SELECT e FROM EventPO e WHERE e.eventId = :eventId");
+        query.setParameter("eventId", id);
+        return (EventPO) query.getSingleResult();
     }
 
 }
