@@ -7,10 +7,10 @@
 
 # How to look at the swagger Api documentation
 
-1. Download the `swagger-file.json` file from the root folder of the repository
+1. Download the `swagger.json` file from the root folder of the repository
 1. Open up [editor.swagger.io](https://editor.swagger.io)
 1. In the navigation bar at the top, choose `File --> Import File`
-1. Upload the `swagger-file.json` file you downloaded
+1. Upload the `swagger.json` file you downloaded
 1. You can now look at the API documentation
 
 
