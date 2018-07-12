@@ -1,5 +1,7 @@
 package ch.bzz.berufsschule.projekt.rs;
 
+import ch.bzz.berufsschule.projekt.data.EventPO;
+import ch.bzz.berufsschule.projekt.data.ReservationDTO;
 import ch.bzz.berufsschule.projekt.data.ReservationPO;
 import ch.bzz.berufsschule.projekt.data.RoomPO;
 import ch.bzz.berufsschule.projekt.database.DatabaseAccess;
@@ -15,7 +17,9 @@ import java.util.List;
 
 /**
  * Created by lucienzimmermann on 31.05.18.
+ * Web services for every action in connection with Reservations
  */
+
 @Path("/ReservationServicesV1")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
@@ -53,9 +57,12 @@ public class ReservationServicesV1 {
     @PUT
     @Path("/reservation")
     @ApiOperation(value = "addReservation", notes = "Adds a new reservation")
-    public Response addReservation(ReservationPO aReservation) {
+    public Response addReservation(ReservationDTO aReservation) {
 
-        ReservationPO reservationPO = new ReservationPO(aReservation.getStart(), aReservation.getEnd(), aReservation.getRoom(), aReservation.getEvent());
+        RoomPO roomPO = databaseAccess.getRoomById(aReservation.getRoomId());
+        EventPO eventPO = databaseAccess.getEventById(aReservation.getEventId());
+
+        ReservationPO reservationPO = new ReservationPO(aReservation.getStart(), aReservation.getEnd(), new RoomPO(roomPO.getRoomId(), roomPO.getName(), roomPO.getDescription()), new EventPO(eventPO.getEventId(), eventPO.getTitle(), eventPO.getDescription(),eventPO.getOrganiser()));
 
         try {
             databaseAccess.addReservation(reservationPO);

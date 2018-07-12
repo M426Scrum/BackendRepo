@@ -13,7 +13,9 @@ import java.util.List;
 
 /**
  * Created by lucienzimmermann on 31.05.18.
+ * Web services for every action in connection with Rooms
  */
+
 @Path("/RoomServicesV1")
 @Produces(MediaType.APPLICATION_JSON)
 @Api(value="Room Service")

@@ -13,7 +13,9 @@ import java.util.List;
 
 /**
  * Created by lucienzimmermann on 05.07.18.
+ * Web services for every action in connection with Events
  */
+
 @Path("/EventServicesV1")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)

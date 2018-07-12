@@ -10,7 +10,9 @@ import java.time.format.DateTimeFormatter;
 
 /**
  * Created by lucienzimmermann on 28.06.18.
+ * A Serializer class for LocalDateTime
  */
+
 public class LocalDateTimeSerializer extends StdSerializer<LocalDateTime> {
 
     private final String DATETIMEFORMAT = "yyyy.MM.dd HH:mm:ss";

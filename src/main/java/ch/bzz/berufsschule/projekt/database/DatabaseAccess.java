@@ -1,9 +1,5 @@
 package ch.bzz.berufsschule.projekt.database;
 
-/**
- * Created by lucienzimmermann on 24.05.18.
- */
-
 import ch.bzz.berufsschule.projekt.data.EventPO;
 import ch.bzz.berufsschule.projekt.data.ReservationPO;
 import ch.bzz.berufsschule.projekt.data.RoomPO;
@@ -19,6 +15,10 @@ import javax.transaction.Transactional;
 import javax.transaction.UserTransaction;
 import java.util.List;
 
+/**
+ * Created by lucienzimmermann on 24.05.18.
+ * DatabaseAccess that gets stuff from the db
+ */
 @Named("databaseAccess")
 @Transactional
 public class DatabaseAccess {
@@ -55,7 +55,7 @@ public class DatabaseAccess {
 
     public void addReservation(ReservationPO reservationPO) throws Exception {
 
-        entityManager.persist(reservationPO);
+        entityManager.merge(reservationPO);
 
     }
 

@@ -13,7 +13,9 @@ import java.time.LocalDateTime;
 
 /**
  * Created by lucienzimmermann on 24.05.18.
+ * PO for the database Entity 'Reservation'
  */
+
 @Data
 @NoArgsConstructor
 @Entity

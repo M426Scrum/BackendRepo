@@ -11,6 +11,7 @@ import java.util.Set;
 
 /**
  * Created by lucienzimmermann on 29.05.18.
+ * Application class that bundles the web services and configures swagger
  */
 
 @ApplicationPath("/v1")

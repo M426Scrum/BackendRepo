@@ -10,6 +10,7 @@ import java.time.format.DateTimeFormatter;
 
 /**
  * Created by lucienzimmermann on 28.06.18.
+ * A Deserializer class for LocalDateTime
  */
 public class LocalDateTimeDeserializer extends StdDeserializer<LocalDateTime> {
 
