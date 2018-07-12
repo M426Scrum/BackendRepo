@@ -1,4 +1,4 @@
-# How to run project with Wildfly-Swarm
+# How to run the project with Wildfly-Swarm
 
 1. Clone project to your computer
 1. Import project into your IDE (intelliJ, eclipse...)
